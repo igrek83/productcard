@@ -1,0 +1,13 @@
+@import url(./__mini-block/header__mini-block.css);
+@import url(./__form/header__form.css);
+
+.header__block {
+  display: flex;
+  flex-direction: column;
+}
+
+@media all and (max-width: 1100px) {
+  .header__block {
+    display: none;
+  }
+}

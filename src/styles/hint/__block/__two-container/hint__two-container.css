@@ -1,0 +1,13 @@
+.hint__two-container {
+  display: flex;
+  justify-content: space-between;
+  width: 1250px;
+}
+
+@media all and (max-width: 1100px) {
+  .hint__two-container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+}

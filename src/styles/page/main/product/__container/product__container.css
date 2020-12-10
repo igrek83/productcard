@@ -1,0 +1,18 @@
+@import url(./__button/product__button.css);
+@import url(./__block/product__block.css);
+@import url(./__menu/product__menu.css);
+@import url(./__characteristics-block/product__characteristics-block.css);
+@import url(./__tv-block/product__tv-block.css);
+
+.product__container {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+}
+
+@media all and (max-width: 1100px) {
+  .product__container {
+    align-items: center;
+    width: 1100px;
+  }
+}

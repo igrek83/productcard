@@ -1,0 +1,14 @@
+.header__title-button {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 15px;
+  color: #fff;
+  margin-bottom: 35px;
+}
+
+.header__title-button:hover {
+  color: #1fcfcb;
+  transition: 0.3s;
+  transition-timing-function: ease;
+}

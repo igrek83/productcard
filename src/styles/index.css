@@ -1,0 +1,32 @@
+@import url(../vendor/font.css);
+@import url(./page/page.css);
+@import url(./header/header.css);
+@import url(./footer/footer.css);
+@import url(./hint/hint.css);
+@import url(./is-closed/is-closed.css);
+@import url(./is-opened/is-opened.css);
+@import url(./open/open.css);
+@import url(./order/order.css);
+
+* {
+  box-sizing: border-box;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: #9c9c9c;
+}
+
+@media all and (max-width: 1900px) {
+  body {
+    background-color: #fff;
+  }
+}

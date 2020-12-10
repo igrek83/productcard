@@ -1,0 +1,13 @@
+.header__button {
+  position: absolute;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  background-size: cover;
+  background-image: url(../../../../../../images/search.svg);
+  top: 11px;
+  left: 13px;
+}

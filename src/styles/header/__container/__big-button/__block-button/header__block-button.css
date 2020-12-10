@@ -1,0 +1,6 @@
+.header__block-button {
+  width: 8px;
+  height: 8px;
+  box-shadow: inset 1px 1px 1px rgba(188, 191, 194, 0.5);
+  transform: rotate(-135deg);
+}

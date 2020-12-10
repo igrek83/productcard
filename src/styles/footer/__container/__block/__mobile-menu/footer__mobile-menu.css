@@ -1,0 +1,9 @@
+.footer__mobile-menu {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  width: 490px;
+  top: 40px;
+  background: #252b2b;
+  z-index: 2;
+}

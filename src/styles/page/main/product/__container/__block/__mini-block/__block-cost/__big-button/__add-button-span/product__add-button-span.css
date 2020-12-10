@@ -1,0 +1,23 @@
+.product__add-button-span {
+  height: 29px;
+  width: 29px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media all and (max-width: 1100px) {
+  .product__add-button-span {
+    width: 142px;
+    height: 142px;
+    border-radius: 60px;
+  }
+}
+
+.product__cost-input {
+  display: none;
+}
+
+.product__cost-input:checked+.product__add-button-span  {
+  background: rgb(255, 255, 255);
+  transition: .5s ease all;
+}

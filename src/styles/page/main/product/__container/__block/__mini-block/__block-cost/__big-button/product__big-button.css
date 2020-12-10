@@ -1,0 +1,20 @@
+.product__big-button {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 41px;
+  border-radius: 12px;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+
+@media all and (max-width: 1100px) {
+  .product__big-button {
+    height: 160px;
+    border-radius: 66px;
+    font-size: 35px;
+  }
+}

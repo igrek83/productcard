@@ -1,0 +1,6 @@
+.header__block-mobile {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 380px;
+}
