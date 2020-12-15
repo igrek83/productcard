@@ -1,42 +1,27 @@
+'use strict'
+
 import './styles/index.css';
 
-// slider
+const array = Array.from(document.querySelectorAll('.product__input')),
+      hint = document.querySelector('.hint'),
+      hintOpenButton = document.querySelector('.description__button-code'),
+      hintCloseButton = document.querySelector('.hint__close'),
+      
+      arrowLeft = document.querySelector('.product__arrow_theme_left'),
+      arrowRight = document.querySelector('.product__arrow_theme_right'),
+      
+      characteristicsButton = document.querySelector('#characteristicsButtonMenu'),
+      descriptionButton = document.querySelector('#descriptionButtonMenu'),
+      tvButton = document.querySelector('#tvButtonMenu'),
+      
+      characteristicsBlock = document.querySelector('.product__characteristics-block'),
+      descriptionBlock = document.querySelector('.description'),
+      tvBlock = document.querySelector('.product__tv-block');
 
-const arr = document.querySelectorAll('.product__input');
-const array = Array.from(arr);
 
-function moveRight() {
-  for (let i = 0; i < array.length; i++) {
-    let item = array[i];
-    if (item.checked) {
-      item.checked = false;
-      if (i === array.length - 1) {
-        array[0].checked = true;
-      } else {
-        item.nextElementSibling.checked = true;
-      }
-      return;
-    }
-  }
-}
 
-function moveLeft() {
-  for (let i = 0; i < array.length; i++) {
-    let item = array[i];
-    if (item.checked) {
-      item.checked = false;
-      if (i === 0) {
-        array[array.length - 1].checked = true;
-      } else {
-        item.previousElementSibling.checked = true;
-      }
-      return;
-    }
-  }
-}
 
-document.querySelector('.product__arrow_theme_right').addEventListener('click', moveRight);
-document.querySelector('.product__arrow_theme_left').addEventListener('click', moveLeft);
+
 
 
 // mobile-menu
@@ -115,29 +100,6 @@ twoButton.addEventListener('click', addColorTurquoise);
 
 
 
-// hint
-
-const hint = document.querySelector('.hint');
-const hintOpenButton = document.querySelector('.description__button-code');
-const hintCloseButton = document.querySelector('.hint__close');
-
-
-/*
-function openHint() {
-  document.querySelector('.header').classList.remove('is-opened');
-  document.querySelector('.main').classList.remove('is-opened');
-  hint.classList.add('is-opened');
-}
-
-function closeHint() {
-  hint.classList.remove('is-opened');
-  document.querySelector('.header').classList.add('is-opened');
-  document.querySelector('.main').classList.add('is-opened');
-}
-
-hintOpenButton.addEventListener('click', openHint);
-hintCloseButton.addEventListener('click', closeHint);
-*/
 
 
 
@@ -215,4 +177,81 @@ class Popup extends BaseComponent {
   }
 }
 
-const Hint = new Popup(hintOpenButton, hintCloseButton, hint);
+class Block extends BaseComponent {
+  constructor(button, container) {
+    super();
+    this.button = button;
+    this.container = container;
+    this.array = [
+      characteristicsBlock,
+      descriptionBlock,
+      tvBlock
+    ];
+    this._setHandlers([{
+        element: this.button,
+        event: 'click',
+        callback: this._open,
+      }
+    ]);
+  }
+  _open() {
+    this.array.forEach((item) => {    
+      item.classList.remove('is-opened');
+    });
+    this.container.classList.add('is-opened');
+  }
+}
+
+class Slider extends BaseComponent {
+  constructor(leftButton, rightButton, array) {
+    super();
+    this.leftButton = leftButton;
+    this.rightButton = rightButton;
+    this.array = array;
+    this._setHandlers([{
+      element: this.leftButton,
+      event: 'click',
+      callback: this._left,
+    },
+    {
+      element: this.rightButton,
+      event: 'click',
+      callback: this._right,
+    }
+  ]);
+  }
+  _left() {
+    for (let i = 0; i < this.array.length; i++) {
+      let item = this.array[i];
+      if (item.checked) {
+        item.checked = false;
+        if (i === 0) {
+          this.array[this.array.length - 1].checked = true;
+        } else {
+          item.previousElementSibling.checked = true;
+        }
+        return;
+      }
+    }
+  }
+  _right() {
+    for (let i = 0; i < this.array.length; i++) {
+      let item = this.array[i];
+      if (item.checked) {
+        item.checked = false;
+        if (i === this.array.length - 1) {
+          this.array[0].checked = true;
+        } else {
+          item.nextElementSibling.checked = true;
+        }
+        return;
+      }
+    }
+  }
+}
+
+const firstSlider = new Slider(arrowLeft, arrowRight, array),
+      oneBlock = new Block(characteristicsButton, characteristicsBlock),
+      twoBlock = new Block(descriptionButton, descriptionBlock),
+      threeBlock = new Block(tvButton, tvBlock),
+      Hint = new Popup(hintOpenButton, hintCloseButton, hint);

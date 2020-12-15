@@ -7,11 +7,9 @@
 
 @media all and (max-width: 1100px) {
   .hint__image-three {
-    position: relative;
-    right: -109px;
     width: 878px;
     height: 1260px;
-    align-self: center;
+    align-self: flex-end;
     background-image: url(../../../../../images/smallHint-3.png);
   }
 }

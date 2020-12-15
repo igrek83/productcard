@@ -2,10 +2,10 @@
 @import url(./__tv-container/product__tv-container.css);
 
 .product__tv-block {
-  display: flex;
+  display: none;
   justify-content: space-between;
   width: 1200px;
-  padding: 130px 0 210px;
+  padding: 160px 0 210px;
 }
 
 @media all and (max-width: 1100px) {
